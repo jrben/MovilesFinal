@@ -5,9 +5,12 @@ public class ClienteVO {
 	private String nombre;
 	private String username;
 	private String password;
+	private int admin;
 
 public ClienteVO(){
-//constructor vacio	
+	nombre="";
+	username="";
+	password="";
 }
 
 public final int getId_cliente() {
@@ -40,6 +43,14 @@ public final String getPassword() {
 
 public final void setPassword(String password) {
 	this.password = password;
+}
+
+public final int getAdmin() {
+	return admin;
+}
+
+public final void setAdmin(int admin) {
+	this.admin = admin;
 }
 
 }

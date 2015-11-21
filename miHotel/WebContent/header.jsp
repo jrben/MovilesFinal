@@ -40,18 +40,21 @@
           </ul>
         </div>
       </li>
+      <%if(session.getAttribute("mod")!=null){%>
       <li>
         <label for="blog">Servicios</label>
         <input type="radio" name="verticalMenu" id="blog" />
         <div>
           <ul>
-            <li><a href="#">Masaje</a></li>
-            <li><a href="#">Desayuno</a></li>
-            <li><a href="#">Almuerzo</a></li>
-            <li><a href="#">Merienda</a></li>
+          
+            <li><a href="#">Nuevo Servicio</a></li>
+            <li><a href="#">Eliminar Servicio</a></li>
           </ul>
         </div>
       </li>
+      <%
+      }
+      %>
       <li>
         <label for="work">Cuenta</label>
         <input type="radio" name="verticalMenu" id="work" />

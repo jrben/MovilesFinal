@@ -114,4 +114,21 @@ public class ServicioCliente {
 		return clientes;
 
 	}
+	
+	public int esAdmin(String username)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "root");
+			PreparedStatement st = conexion.prepareStatement("SELECT c FROM Cliente c WHERE c.username = '"+username+"' AND c.admin = 1");
+			st.execute();
+			ResultSet rs = st.getResultSet();
+			
+			st.close();
+			conexion.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return 1;	    	
+	}
 }
