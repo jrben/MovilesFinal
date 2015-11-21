@@ -35,8 +35,7 @@
 			</tr>
 			
 				<tr>
-					<th>Descripción:</th>
-					<td><textarea name="descripcion" rows="20" cols="60"></textarea>
+					<td>Precio de su reservacion: <input type = "text "name="precio"></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -57,7 +56,7 @@
 			<button type="submit" name="botonGuardarPost">Guardar</button>
 
 		</form>
-	</center>
+	</center>	
 	<jsp:include page="footer.jsp" />
 </body>
 </html>
