@@ -11,23 +11,29 @@
 
 	<center>
 		<h3>NUEVA RESERVA</h3>
-		<br>
-		<br>
+		<br> <br>
 		<h6>Ingrese los datos del Post:</h6>
-		<br>
-		<br>
+		<br> <br>
 		<form action="GuardarReserva" method="post">
 
-			<table>
-				<tr>
-					<th>Fecha de Ingreso:</th>
-					<td>
-						<div class="check_date_row">
-							<input type="text" class="date-pick hasDatepicker" id="check_in" readonly="readonly">
-						</div> <input type="text" name="titulo">
-					</td>
-				</tr>
+<table>
+			<tr>
 
+				<div class="left">
+					<p>
+						Fecha de Ingreso: <input type="date" class="text" id="fechaingreso">
+					</p>
+				</div>
+			</tr>
+			<tr>
+
+				<div class="left">
+					<p>
+						Fecha de Salida: <input type="date" class="text" id="fechasalida">
+					</p>
+				</div>
+			</tr>
+			
 				<tr>
 					<th>Descripción:</th>
 					<td><textarea name="descripcion" rows="20" cols="60"></textarea>
@@ -37,7 +43,7 @@
 					<th>Categoria:</th>
 					<td><select name="comboTipo">
 							<%
-								List<TipoHabitacionVO> tip = (ArrayList<TipoHabitacionVO>) request.getAttribute("categorias");
+								List<TipoHabitacionVO> tip = (ArrayList<TipoHabitacionVO>) request.getAttribute("tipos");
 								for (int i = 0; i < tip.size(); i++) {
 							%>
 							<option value="<%=tip.get(i).getId_tipo()%>"><%=tip.get(i).getTipo()%></option>
