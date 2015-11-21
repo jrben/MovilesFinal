@@ -4,8 +4,6 @@
     <h1 class="title">HOTEL</h1>
     <img src="./Imagenes/Hotel.bmp" alt="Hotel" />
  </center>
-
-<div class="wrapper">
 <%
 						if (session.getAttribute("username") != null)
 						{
@@ -15,6 +13,7 @@
 							<%
 						}
 					%> 
+<div class="wrapper">
   <nav class="vertical">
     <ul>
       <li>
