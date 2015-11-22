@@ -4,6 +4,8 @@ public class TipoHabitacionVO {
 	private int id_tipo;
 	private String tipo;
 	private float precio_tipo;
+	private int capacidad;
+	private int disponibilidad;
 	
 	public TipoHabitacionVO(){
 		tipo="";
@@ -31,6 +33,22 @@ public class TipoHabitacionVO {
 
 	public final void setPrecio_tipo(float precio_tipo) {
 		this.precio_tipo = precio_tipo;
+	}
+
+	public final int getCapacidad() {
+		return capacidad;
+	}
+
+	public final void setCapacidad(int capacidad) {
+		this.capacidad = capacidad;
+	}
+
+	public final int getDisponibilidad() {
+		return disponibilidad;
+	}
+
+	public final void setDisponibilidad(int disponibilidad) {
+		this.disponibilidad = disponibilidad;
 	}
 
 }

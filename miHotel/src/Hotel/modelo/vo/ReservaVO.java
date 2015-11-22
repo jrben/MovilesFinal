@@ -5,12 +5,15 @@ import java.util.Date;
 public class ReservaVO {
 	private int id_reserva;
 	private int id_cliente;
-	private Date fecha_ingreso;
-	private Date fecha_salida;
-	private float precio_reserva;
+	private String fecha_ingreso;
+	private String fecha_salida;
+	private String precio_reserva;
 	
 	public ReservaVO(){
-		//constructor vacio
+		fecha_ingreso="";
+		fecha_salida="";
+		precio_reserva="";
+		
 	}
 
 	public final int getId_reserva() {
@@ -29,28 +32,30 @@ public class ReservaVO {
 		this.id_cliente = id_cliente;
 	}
 
-	public final Date getFecha_ingreso() {
+	public final String getFecha_ingreso() {
 		return fecha_ingreso;
 	}
 
-	public final void setFecha_ingreso(Date fecha_ingreso) {
+	public final void setFecha_ingreso(String fecha_ingreso) {
 		this.fecha_ingreso = fecha_ingreso;
 	}
 
-	public final Date getFecha_salida() {
+	public final String getFecha_salida() {
 		return fecha_salida;
 	}
 
-	public final void setFecha_salida(Date fecha_salida) {
+	public final void setFecha_salida(String fecha_salida) {
 		this.fecha_salida = fecha_salida;
 	}
 
-	public final float getPrecio_reserva() {
+	public final String getPrecio_reserva() {
 		return precio_reserva;
 	}
 
-	public final void setPrecio_reserva(float precio_reserva) {
+	public final void setPrecio_reserva(String precio_reserva) {
 		this.precio_reserva = precio_reserva;
 	}
+
+
 
 }

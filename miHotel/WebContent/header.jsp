@@ -21,9 +21,8 @@
         <input type="radio" name="verticalMenu" id="home" />
         <div>
           <ul>
-            <li><a href="#">Index</a></li>
+            <li><a href="Home">Index</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Corporate</a></li>
             <li><a href="#">Contact</a></li>
           </ul>
         </div>
@@ -33,7 +32,7 @@
         <input type="radio" name="verticalMenu" id="res" />
         <div>
           <ul>
-            <li><a href="#">Nueva Reserva</a></li>
+            <li><a href="NuevaReserva">Nueva Reserva</a></li>
             <li><a href="#">Modificar Referva</a></li>
             <li><a href="#">Eliminar Reserva</a></li>
             <li><a href="#">Ver mis Reservas</a></li>

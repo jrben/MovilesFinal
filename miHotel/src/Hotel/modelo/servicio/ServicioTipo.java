@@ -17,31 +17,29 @@ import Hotel.modelo.vo.TipoHabitacionVO;
 
 public class ServicioTipo {
 	public List<TipoHabitacionVO> listarTipos() {
-		List<TipoHabitacionVO> tipos = new ArrayList<TipoHabitacionVO>();
+		
+		ArrayList<TipoHabitacionVO> tipos = new ArrayList<TipoHabitacionVO>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "root");
 			// System.out.println("Conexión exitosa");
-			PreparedStatement st = conexion.prepareStatement("SELECT t FROM tipohabitacion t");
+			PreparedStatement st = conexion.prepareStatement("SELECT * FROM tipohabitacion t");
 			st.execute();
 			ResultSet rs = st.getResultSet();
-			
-
-		//List<TipoHabitacionVO> tipos = new ArrayList<TipoHabitacionVO>();
-		List<TipoHabitacionVO> lista=(List<TipoHabitacionVO>) st.getResultSet();
-	    for( TipoHabitacionVO t:lista )
-	    {   
-	    	TipoHabitacionVO tip = new TipoHabitacionVO();
-	    	tip.setId_tipo(t.getId_tipo());
-	    	tip.setPrecio_tipo(t.getPrecio_tipo());
-	    	tip.setTipo(t.getTipo());
-	    	tipos.add(tip);
-	    }
-	    //return tipos;		
-	} catch (Exception e) {
+			while(rs.next()){
+				TipoHabitacionVO tipo = new TipoHabitacionVO();
+				tipo.setId_tipo(rs.getInt("id_tipo"));
+				tipo.setPrecio_tipo(rs.getFloat("precio_tipo"));
+				tipo.setTipo(rs.getString("tipo"));
+				tipos.add(tipo);
+			}
+			st.close();
+			conexion.close();
+	    }catch (Exception e) {
 		e.printStackTrace();
 	}
 		return tipos;
 
 }
+
 }
