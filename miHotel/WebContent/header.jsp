@@ -9,7 +9,7 @@
 						{
 							%>
 							Bienvenido <%=session.getAttribute("username")%>
-							Id <%=session.getAttribute("id_cliente")%>							
+													
 							<%
 						}
 					%> 
@@ -22,8 +22,6 @@
         <div>
           <ul>
             <li><a href="Home">Index</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
           </ul>
         </div>
       </li>
@@ -39,21 +37,28 @@
           </ul>
         </div>
       </li>
-      <%if(session.getAttribute("mod")!=null){%>
-      <li>
+<%
+if(session.getAttribute("admin")!=null){
+if((int)session.getAttribute("admin")==1){ %>
+<li>
         <label for="blog">Servicios</label>
         <input type="radio" name="verticalMenu" id="blog" />
         <div>
           <ul>
           
-            <li><a href="#">Nuevo Servicio</a></li>
-            <li><a href="#">Eliminar Servicio</a></li>
+            <li><a href="InsertarServicio">Nuevo Servicio</a></li>
+            <li><a href="EliminarServicio">Eliminar Servicio</a></li>
           </ul>
         </div>
       </li>
-      <%
-      }
-      %>
+
+
+<%}} %>
+      
+
+
+
+
       <li>
         <label for="work">Cuenta</label>
         <input type="radio" name="verticalMenu" id="work" />

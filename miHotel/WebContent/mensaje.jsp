@@ -8,6 +8,6 @@
 </head>
 <body>
 <%@ include file="header.jsp" %>
-<h3>RESERVA EXISTOSA</h3>
+<h3>OPERACION EXISTOSA</h3>
 </body>
 </html>

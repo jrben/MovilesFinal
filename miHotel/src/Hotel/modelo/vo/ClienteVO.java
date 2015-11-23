@@ -11,6 +11,7 @@ public ClienteVO(){
 	nombre="";
 	username="";
 	password="";
+	admin=0;
 }
 
 public final int getId_cliente() {

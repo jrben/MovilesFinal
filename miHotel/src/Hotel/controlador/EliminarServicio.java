@@ -15,16 +15,16 @@ import Hotel.modelo.servicio.ServicioTipoServicio;
 import Hotel.modelo.vo.TipoHabitacionVO;
 import Hotel.modelo.vo.TipoServicioVO;
 
-@WebServlet("/NuevaReserva")
-public class NuevaReserva extends HttpServlet {
+@WebServlet("/EliminarServicio")
+public class EliminarServicio extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public NuevaReserva() {
+    public EliminarServicio() {
         super();
 
     }
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ServicioTipo servicio = new ServicioTipo();
 		List<TipoHabitacionVO> listaTipos=servicio.listarTipos();
 		request.setAttribute("tipos", listaTipos);
@@ -32,8 +32,7 @@ public class NuevaReserva extends HttpServlet {
 		ServicioTipoServicio servic= new ServicioTipoServicio();
 		List<TipoServicioVO> listaTipoServicio=servic.listarTipoServicio();
 		request.setAttribute("tiposervicio", listaTipoServicio);
-		
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/nuevaReserva.jsp");
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/eliminarServicio.jsp");
 		rd.forward(request, response);
 
 	}

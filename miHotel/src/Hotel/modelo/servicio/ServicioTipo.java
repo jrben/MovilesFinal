@@ -31,6 +31,8 @@ public class ServicioTipo {
 				tipo.setId_tipo(rs.getInt("id_tipo"));
 				tipo.setPrecio_tipo(rs.getFloat("precio_tipo"));
 				tipo.setTipo(rs.getString("tipo"));
+				tipo.setCapacidad(rs.getInt("capacidad"));
+				tipo.setDisponibilidad(rs.getInt("disponibilidad"));
 				tipos.add(tipo);
 			}
 			st.close();
@@ -41,5 +43,27 @@ public class ServicioTipo {
 		return tipos;
 
 }
+	
+	public int obtenerId(int precio){
+		int id=0;
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "root");
+			PreparedStatement st = conexion.prepareStatement("SELECT * FROM tipohabitacion where precio_tipo=?");
+			st.setInt(1, precio);
+			st.execute();
+			ResultSet rs = st.getResultSet();
+			while(rs.next()){
+				id=rs.getInt("id_tipo");
+			}
+			st.close();
+			conexion.close();
+	    }catch (Exception e) {
+		e.printStackTrace();
+	}
+		return id;		
+	}
+	
+	
 
 }

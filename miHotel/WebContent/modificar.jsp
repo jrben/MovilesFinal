@@ -14,11 +14,11 @@
 	<%@ include file="header.jsp"%>
 
 	<center>
-		<h3>NUEVA RESERVA</h3>
+		<h3>MODIFICAR RESERVA</h3>
 		<br> <br>
-		<h6>Complete su reservacion:</h6>
+		<h6>Modifique su reservacion:</h6>
 		<br> <br>
-		<form action="GuardarReserva" method="post">
+		<form action="ModificarReserva" method="post">
 
 			<table>
 				<tr>
@@ -100,7 +100,7 @@
 				
 			</tr>
 			<p>
-				<button type="submit" name="botonGuardarReserva	">Guardar</button>
+				<button type="submit" name="botonGuardarReserva	">Guardar Cambios</button>
 			</p>
 		</form>
 	</center>

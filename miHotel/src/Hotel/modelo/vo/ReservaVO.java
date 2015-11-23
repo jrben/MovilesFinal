@@ -5,6 +5,8 @@ import java.util.Date;
 public class ReservaVO {
 	private int id_reserva;
 	private int id_cliente;
+	private int id_tipo;
+	private int id_tipo_serv;
 	private String fecha_ingreso;
 	private String fecha_salida;
 	private String precio_reserva;
@@ -54,6 +56,22 @@ public class ReservaVO {
 
 	public final void setPrecio_reserva(String precio_reserva) {
 		this.precio_reserva = precio_reserva;
+	}
+
+	public final int getId_tipo() {
+		return id_tipo;
+	}
+
+	public final void setId_tipo(int id_tipo) {
+		this.id_tipo = id_tipo;
+	}
+
+	public final int getId_tipo_serv() {
+		return id_tipo_serv;
+	}
+
+	public final void setId_tipo_serv(int id_tipo_serv) {
+		this.id_tipo_serv = id_tipo_serv;
 	}
 
 

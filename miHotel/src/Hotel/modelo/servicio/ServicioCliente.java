@@ -18,7 +18,7 @@ public class ServicioCliente {
 		ArrayList<ClienteVO> clientes = servicioCliente.consultarClientes();
 		
 		for (int i=0; i<clientes.size();i++){
-			System.out.println(clientes.get(i).getNombre());
+			System.out.println(clientes.get(i).getNombre()+clientes.get(i).getId_cliente());
 		}
 
 	}
@@ -61,6 +61,36 @@ public class ServicioCliente {
 		return existe;
 	}
 
+	public ClienteVO inicioSesion(String a, String b) {
+		ClienteVO cliente=new ClienteVO();
+
+		try {
+
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "root");
+			PreparedStatement st = conexion.prepareStatement("select * from cliente where username=? and password =?");
+			st.setString(1, a);
+			st.setString(2, b);
+			st.execute();
+			ResultSet rs = st.getResultSet();
+			while (rs.next()) {
+				cliente.setId_cliente(rs.getInt("id_cliente"));
+				cliente.setNombre(rs.getString("nombre"));
+				cliente.setUsername(rs.getString("username"));
+				cliente.setPassword(rs.getString("password"));
+				cliente.setAdmin(rs.getInt("admin"));
+			}
+			System.out.println("tttt"+cliente.getNombre()+cliente.getId_cliente());
+			st.close();
+			conexion.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return cliente;
+	}
+	
+	
+	
 	public void registrarCliente(ClienteVO cliente) {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -112,23 +142,6 @@ public class ServicioCliente {
 			e.printStackTrace();
 		}
 		return clientes;
+	}
 
-	}
-	
-	public int esAdmin(String username)
-	{
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "root");
-			PreparedStatement st = conexion.prepareStatement("SELECT c FROM Cliente c WHERE c.username = '"+username+"' AND c.admin = 1");
-			st.execute();
-			ResultSet rs = st.getResultSet();
-			
-			st.close();
-			conexion.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return 1;	    	
-	}
 }
