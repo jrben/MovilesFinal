@@ -40,25 +40,29 @@ public class GuardarReserva extends HttpServlet {
 		reserva.setFecha_ingreso(fechai);
 		
 		String fechas=request.getParameter("fechasalida");
-		reserva.setFecha_ingreso(fechas);
+		reserva.setFecha_salida(fechas);
 
 		
 		reserva.setId_cliente(Integer.parseInt(request.getParameter("iddd")));
+//		reserva.set
 		
 		int precioHabitacion= (int)(Double.parseDouble(request.getParameter("comboTipo")));
 		ServicioTipo s = new ServicioTipo();
 		int idH=s.obtenerId(precioHabitacion);
 		reserva.setId_tipo(idH);
-				
+		System.out.println("EL id de servico en servlet es : "+idH);	
+		
 		int precioServicio= (int)(Double.parseDouble(request.getParameter("comboServicio")));
 		ServicioTipoServicio ss=new ServicioTipoServicio();
 		int idS=ss.obtenerId(precioServicio);
 		reserva.setId_tipo_serv(idS);
 		System.out.println("33333");
-
+		System.out.println("EL id de servico en servlet es : "+idS);
+		
 		int suma=precioHabitacion+precioServicio;
 		reserva.setPrecio_reserva(String.valueOf(suma));		
 		System.out.println("4444");
+		System.out.println("Id de servicio es: " +reserva.getId_tipo_serv());
 
 		ServicioReserva servicio = new ServicioReserva();
 		servicio.registrarReserva(reserva);

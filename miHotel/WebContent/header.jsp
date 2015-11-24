@@ -33,7 +33,7 @@
             <li><a href="NuevaReserva">Nueva Reserva</a></li>
             <li><a href="#">Modificar Referva</a></li>
             <li><a href="#">Eliminar Reserva</a></li>
-            <li><a href="#">Ver mis Reservas</a></li>
+            <li><a href="VerReserva">Ver mis Reservas</a></li>
           </ul>
         </div>
       </li>

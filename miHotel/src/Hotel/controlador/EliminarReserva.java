@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import Hotel.modelo.servicio.ServicioTipoServicio;
 
-@WebServlet("/EliminarServicio1")
-public class EliminarServicio1 extends HttpServlet {
+@WebServlet("/EliminarReserva")
+public class EliminarReserva extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public EliminarServicio1() {
+    public EliminarReserva() {
         super();
     }
 
@@ -30,6 +30,7 @@ public class EliminarServicio1 extends HttpServlet {
 		request.setAttribute("mensaje", "Servicio eliminado exitosamente!");
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/mensaje.jsp");
 		rd.forward(request, response);
+
 	}
 
 }

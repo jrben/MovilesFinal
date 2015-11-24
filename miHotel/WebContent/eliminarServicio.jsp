@@ -20,8 +20,7 @@
 					<p>
 					<th><h6>Servicios Disponibles:</h6></th>
 					</p>
-					<td><select name="comboServicio" size="1" 
-						onchange="funcionTipoServicio()">
+					<td><select name="comboServicio" size="1">
 							<%
 								List<TipoServicioVO> serv = (ArrayList<TipoServicioVO>) request.getAttribute("tiposervicio");
 								for (int j = 0; j < serv.size(); j++) {

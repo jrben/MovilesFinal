@@ -14,10 +14,9 @@ import javax.persistence.Query;
 
 import Hotel.modelo.vo.TipoHabitacionVO;
 
-
 public class ServicioTipo {
 	public List<TipoHabitacionVO> listarTipos() {
-		
+
 		ArrayList<TipoHabitacionVO> tipos = new ArrayList<TipoHabitacionVO>();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -26,7 +25,7 @@ public class ServicioTipo {
 			PreparedStatement st = conexion.prepareStatement("SELECT * FROM tipohabitacion t");
 			st.execute();
 			ResultSet rs = st.getResultSet();
-			while(rs.next()){
+			while (rs.next()) {
 				TipoHabitacionVO tipo = new TipoHabitacionVO();
 				tipo.setId_tipo(rs.getInt("id_tipo"));
 				tipo.setPrecio_tipo(rs.getFloat("precio_tipo"));
@@ -37,33 +36,37 @@ public class ServicioTipo {
 			}
 			st.close();
 			conexion.close();
-	    }catch (Exception e) {
-		e.printStackTrace();
-	}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return tipos;
 
-}
-	
-	public int obtenerId(int precio){
-		int id=0;
+	}
+
+	public int obtenerId(int precio) {
+		int id = 0;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "root");
 			PreparedStatement st = conexion.prepareStatement("SELECT * FROM tipohabitacion where precio_tipo=?");
 			st.setInt(1, precio);
+			System.out.println("NOOOO funciona"+precio);
 			st.execute();
 			ResultSet rs = st.getResultSet();
-			while(rs.next()){
-				id=rs.getInt("id_tipo");
+
+			while (rs.next()) {
+
+				id = rs.getInt("id_tipo");
+				System.out.println("Columna resultado ID TIPO " + rs.getInt("Id_tipo"));
 			}
+			
 			st.close();
 			conexion.close();
-	    }catch (Exception e) {
-		e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println(id);
+		return id;
 	}
-		return id;		
-	}
-	
-	
 
 }

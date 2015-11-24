@@ -17,7 +17,7 @@ public List<TipoServicioVO> listarTipoServicio() {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "root");
 			// System.out.println("Conexión exitosa");
-			PreparedStatement st = conexion.prepareStatement("SELECT * FROM tiposervicio ts");
+			PreparedStatement st = conexion.prepareStatement("SELECT * FROM tiposervicio ts  ");
 			st.execute();
 			ResultSet rs = st.getResultSet();
 			while(rs.next()){
@@ -44,16 +44,20 @@ public int obtenerId(int precio){
 		Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotel", "root", "root");
 		PreparedStatement st = conexion.prepareStatement("SELECT * FROM tiposervicio where precio_serv=?");
 		st.setInt(1, precio);
+		System.out.println("funciona"+precio);
 		st.execute();
 		ResultSet rs = st.getResultSet();
 		while(rs.next()){
-			id=rs.getInt("id_tipo");
+			id=rs.getInt("id_tipo_serv");
+			System.out.println("EL ID DEL TIPO SERVICIO EN BDD ES: "+rs.getInt("id_tipo"));
 		}
+		System.out.println("EL ID DEL TIPO SERVICIO fuera del while es: "+rs.getInt("id_tipo"));
 		st.close();
 		conexion.close();
     }catch (Exception e) {
 	e.printStackTrace();
 }
+	System.out.println("EL ID DEL TIPO SERVICIO antes del return es: "+id);
 	return id;		
 }
 
